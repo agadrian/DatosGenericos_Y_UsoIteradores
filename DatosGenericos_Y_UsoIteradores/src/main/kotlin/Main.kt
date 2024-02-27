@@ -1,11 +1,16 @@
-import kotlin.time.measureTimedValue
-
+/**
+ * Invierte el orden de los elementos en una lista dada generica.
+ * @param lista La lista generica que se desea invertir.
+ * @return Una nueva lista con los elementos en orden inverso.
+ */
 fun <T> reverse(lista: List<T>): List<T>{
     val pila = Pila<T>()
 
     // Añadir los elementos de la lista pasada como parametro a la lista interna de la clase Pila
-    for (elemento in lista.reversed()){
-        pila.push(elemento)
+    //    for (elemento in lista.reversed()){
+    //        pila.push(elemento)
+    for (indice in lista.indices.reversed()){
+        pila.push(lista[indice])
     }
 
     // Crear iterador de la lista interna de la clase Pila
@@ -18,7 +23,6 @@ fun <T> reverse(lista: List<T>): List<T>{
     while (iterador.hasNext()){
         listaReversed.add(iterador.next())
     }
-
     return listaReversed
 }
 
